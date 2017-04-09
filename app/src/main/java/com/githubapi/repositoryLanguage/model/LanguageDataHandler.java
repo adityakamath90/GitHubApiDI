@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 9/4/17 9:22 PM
+ * Created by Aditya on 9/4/17 10:37 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 9:22 PM
+ * Last modified 9/4/17 9:30 PM
  */
 
 package com.githubapi.repositoryLanguage.model;
@@ -28,7 +28,7 @@ public class LanguageDataHandler {
 
     public void fetchRepos(String language) {
         GithubApiService githubApiService = RestClient.getInstance().getService(GithubApiService.class);
-        githubApiService.getRepos().enqueue(new Callback<List<Repository>>() {
+        githubApiService.getRepos(language).enqueue(new Callback<List<Repository>>() {
             @Override
             public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
                 mRepositoryListener.onSuccess(response.body());
