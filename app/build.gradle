@@ -1,3 +1,10 @@
+/*
+ * Created by Aditya on 9/4/17 9:21 PM
+ * Copyright (c) 2017 All rights reserved.
+ *
+ * Last modified 9/4/17 8:51 PM
+ */
+
 apply plugin: 'com.android.application'
 
 android {
@@ -21,10 +28,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+
     compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
 
     //network dependency
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
@@ -32,4 +38,9 @@ dependencies {
 
     //unit test
     testCompile 'junit:junit:4.12'
+
+    //UI test
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 }
