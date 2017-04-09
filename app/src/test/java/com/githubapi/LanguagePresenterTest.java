@@ -28,7 +28,7 @@ public class LanguagePresenterTest {
     private LanguageView langauegeView;
 
     @Before
-    void setUp() {
+    public void setUp() {
         mLanguagePresenter = new LanguagePresenter(langauegeView);
     }
 
@@ -47,7 +47,7 @@ public class LanguagePresenterTest {
     }
 
     @After
-    void tearDown() {
+    public void tearDown() {
         langauegeView = null;
         mLanguagePresenter = null;
     }
