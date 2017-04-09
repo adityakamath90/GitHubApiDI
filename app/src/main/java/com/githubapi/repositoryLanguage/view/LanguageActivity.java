@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 9/4/17 9:22 PM
+ * Created by Aditya on 9/4/17 11:29 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 9:22 PM
+ * Last modified 9/4/17 11:29 PM
  */
 
 package com.githubapi.repositoryLanguage.view;
@@ -19,8 +19,7 @@ import android.widget.Toast;
 import com.githubapi.R;
 import com.githubapi.repositoryLanguage.model.Repository;
 import com.githubapi.repositoryLanguage.presenter.LanguagePresenter;
-
-import java.util.List;
+import com.githubapi.repositoryList.view.RepositoryList;
 
 /**
  * LanguageActivity contains an edit text and a button
@@ -45,6 +44,8 @@ public class LanguageActivity extends AppCompatActivity implements LanguageView{
                 String language = editTextLanguage.getText().toString().trim();
                 if (mLanguagePresenter.isLanguageStringValid(language)) {
                     mLanguagePresenter.fetchRepos(language);
+                } else {
+                    displayMessage(getString(R.string.enterLanguage));
                 }
             }
         });
@@ -65,10 +66,15 @@ public class LanguageActivity extends AppCompatActivity implements LanguageView{
     }
 
     @Override
-    public void moveToLanguageDetailScreen(List<Repository> repositoryList) {
-        Intent languageDetailIntent = new Intent(this, LanguageActivity.class);
-        startActivity(languageDetailIntent);
-        finish();
+    public void moveToLanguageDetailScreen(Repository repository) {
+        if (!mLanguagePresenter.isRepoListEmpty(repository.getItems())) {
+            Intent languageDetailIntent = new Intent(this, LanguageActivity.class);
+            languageDetailIntent.putParcelableArrayListExtra(RepositoryList.REPO_LIST, repository.getItems());
+            startActivity(languageDetailIntent);
+            finish();
+        } else {
+            displayMessage(getString(R.string.no_repo_found));
+        }
     }
 
     @Override
