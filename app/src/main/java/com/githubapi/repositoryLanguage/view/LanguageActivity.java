@@ -1,20 +1,26 @@
 /*
- * Created by Aditya on 9/4/17 7:00 PM
+ * Created by Aditya on 9/4/17 9:22 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 7:00 PM
+ * Last modified 9/4/17 9:22 PM
  */
 
-package com.githubapi.language.view;
+package com.githubapi.repositoryLanguage.view;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.githubapi.R;
+import com.githubapi.repositoryLanguage.model.Repository;
+import com.githubapi.repositoryLanguage.presenter.LanguagePresenter;
+
+import java.util.List;
 
 /**
  * LanguageActivity contains an edit text and a button
@@ -24,18 +30,28 @@ import com.githubapi.R;
  */
 public class LanguageActivity extends AppCompatActivity implements LanguageView{
 
-    private EditText mEditTextLanguage;
-    private Button mButtonSearchGitHub;
     private ProgressDialog mProgressDialog;
+    private LanguagePresenter mLanguagePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lanuage);
-        mEditTextLanguage = (EditText) findViewById(R.id.editTextLanguage);
-        mButtonSearchGitHub = (Button) findViewById(R.id.buttonSearch);
+        final EditText editTextLanguage = (EditText) findViewById(R.id.editTextLanguage);
+        Button buttonSearchGitHub = (Button) findViewById(R.id.buttonSearch);
+        buttonSearchGitHub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String language = editTextLanguage.getText().toString().trim();
+                if (mLanguagePresenter.isLanguageStringValid(language)) {
+                    mLanguagePresenter.fetchRepos(language);
+                }
+            }
+        });
+        mLanguagePresenter = new LanguagePresenter(this);
 
     }
+
 
     @Override
     public void showDialog() {
@@ -49,8 +65,10 @@ public class LanguageActivity extends AppCompatActivity implements LanguageView{
     }
 
     @Override
-    public void moveToLanguageDetailScreen() {
-
+    public void moveToLanguageDetailScreen(List<Repository> repositoryList) {
+        Intent languageDetailIntent = new Intent(this, LanguageActivity.class);
+        startActivity(languageDetailIntent);
+        finish();
     }
 
     @Override
