@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 9/4/17 10:37 PM
+ * Created by Aditya on 9/4/17 11:22 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 10:27 PM
+ * Last modified 9/4/17 11:22 PM
  */
 
 package com.githubapi.repositoryLanguage.model;
@@ -10,7 +10,7 @@ package com.githubapi.repositoryLanguage.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Repository {
 
@@ -22,7 +22,7 @@ public class Repository {
     private Boolean incompleteResults;
     @SerializedName("items")
     @Expose
-    private List<Item> items = null;
+    private ArrayList<Item> items = null;
 
     public Integer getTotalCount() {
         return totalCount;
@@ -40,11 +40,11 @@ public class Repository {
         this.incompleteResults = incompleteResults;
     }
 
-    public List<Item> getItems() {
+    public ArrayList<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(ArrayList<Item> items) {
         this.items = items;
     }
 
