@@ -1,13 +1,11 @@
 /*
- * Created by Aditya on 9/4/17 11:29 PM
+ * Created by Aditya on 9/4/17 11:47 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 11:29 PM
+ * Last modified 9/4/17 11:47 PM
  */
 
 package com.githubapi.repositoryLanguage.presenter;
-
-import android.text.TextUtils;
 
 import com.githubapi.repositoryLanguage.model.Item;
 import com.githubapi.repositoryLanguage.model.LanguageDataHandler;
@@ -29,7 +27,7 @@ public class LanguagePresenter implements RepositoryListener {
 
     public boolean isLanguageStringValid(String language) {
         boolean isLanguageStringValid = true;
-        if (TextUtils.isEmpty(language)) {
+        if (language == null || language.isEmpty()) {
             isLanguageStringValid = false;
         }
 
