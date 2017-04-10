@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Created by Aditya on 10/4/17 7:01 PM
+  ~ Created by Aditya on 10/4/17 7:03 PM
   ~ Copyright (c) 2017 All rights reserved.
   ~
-  ~ Last modified 10/4/17 7:01 PM
+  ~ Last modified 10/4/17 7:02 PM
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,6 +19,8 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        android:layout_marginTop="@dimen/contributorTopMargin"
+        android:layout_below="@+id/textViewIssueList"
         android:id="@+id/textViewContributorList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
