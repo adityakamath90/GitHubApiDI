@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Created by Aditya on 10/4/17 3:55 PM
+  ~ Created by Aditya on 10/4/17 7:05 PM
   ~ Copyright (c) 2017 All rights reserved.
   ~
-  ~ Last modified 10/4/17 3:03 PM
+  ~ Last modified 10/4/17 7:05 PM
   -->
 
 <RelativeLayout
@@ -11,12 +11,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context="com.githubapi.repositoryLanguage.view.LanguageActivity">
 
 
     <EditText
         android:id="@+id/editTextLanguage"
-        android:layout_centerInParent="true"
         android:layout_margin="@dimen/langaudeEditTextMargin"
         android:hint="@string/enterLanguage"
         android:maxLines="@integer/languageEditTextMaxLine"
