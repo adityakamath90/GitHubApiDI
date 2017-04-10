@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 5:01 PM
+ * Created by Aditya on 11/4/17 2:17 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 4:42 PM
+ * Last modified 11/4/17 2:17 AM
  */
 
 package com.githubapi.repositoryList.view;
@@ -22,7 +22,7 @@ import java.util.List;
  * Created by Aditya on 09/04/17.
  */
 
-public class RepositoryListAdapter extends BaseAdapter {
+class RepositoryListAdapter extends BaseAdapter {
 
     private List<Item> mItemList;
     private LayoutInflater mInflater;
@@ -66,7 +66,7 @@ public class RepositoryListAdapter extends BaseAdapter {
         return view;
     }
 
-    public void addToRepo(List<Item> listItem) {
+    void addToRepo(List<Item> listItem) {
         mItemList.addAll(listItem);
         notifyDataSetChanged();
     }

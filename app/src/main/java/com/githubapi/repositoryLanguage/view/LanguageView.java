@@ -1,15 +1,15 @@
 /*
- * Created by Aditya on 10/4/17 5:01 PM
+ * Created by Aditya on 11/4/17 2:17 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 5:01 PM
+ * Last modified 11/4/17 2:16 AM
  */
 
 package com.githubapi.repositoryLanguage.view;
 
 /**
  * Methods which are invoked by @link {@link com.githubapi.repositoryLanguage.presenter.LanguagePresenter}
- * and implemented by @link {@link LanguageActivity}
+ * and implemented by @link {@link RepositoryLanguageActivity}
  */
 
 public interface LanguageView {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Created by Aditya on 10/4/17 7:01 PM
+  ~ Created by Aditya on 11/4/17 2:17 AM
   ~ Copyright (c) 2017 All rights reserved.
   ~
-  ~ Last modified 10/4/17 7:01 PM
+  ~ Last modified 11/4/17 2:16 AM
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.githubapi">
@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".repositoryLanguage.view.LanguageActivity"
+            android:name=".repositoryLanguage.view.RepositoryLanguageActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

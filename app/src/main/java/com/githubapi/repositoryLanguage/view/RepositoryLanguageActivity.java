@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 7:01 PM
+ * Created by Aditya on 11/4/17 2:17 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 6:15 PM
+ * Last modified 11/4/17 2:16 AM
  */
 
 package com.githubapi.repositoryLanguage.view;
@@ -20,12 +20,12 @@ import com.githubapi.repositoryLanguage.presenter.LanguagePresenter;
 import com.githubapi.repositoryList.view.RepositoryList;
 
 /**
- * LanguageActivity contains an edit text and a button
+ * RepositoryLanguageActivity contains an edit text and a button
  * Edit text value cannot be empty and a Toast is displayed.
  * Clicking on Button text validates the github content i.e programming language
  * to be displayed as a list.
  */
-public class LanguageActivity extends AppCompatActivity implements LanguageView {
+public class RepositoryLanguageActivity extends AppCompatActivity implements LanguageView {
 
     private LanguagePresenter mLanguagePresenter;
     private String mLanguage;
