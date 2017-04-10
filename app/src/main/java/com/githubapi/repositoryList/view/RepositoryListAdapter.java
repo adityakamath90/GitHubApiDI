@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 3:59 PM
+ * Created by Aditya on 10/4/17 5:01 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 3:44 PM
+ * Last modified 10/4/17 4:42 PM
  */
 
 package com.githubapi.repositoryList.view;
@@ -64,6 +64,11 @@ public class RepositoryListAdapter extends BaseAdapter {
         viewHolder.repoItem.setText(mItemList.get(position).getName());
 
         return view;
+    }
+
+    public void addToRepo(List<Item> listItem) {
+        mItemList.addAll(listItem);
+        notifyDataSetChanged();
     }
 
 

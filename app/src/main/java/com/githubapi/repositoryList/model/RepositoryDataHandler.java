@@ -1,14 +1,16 @@
 /*
- * Created by Aditya on 10/4/17 3:58 PM
+ * Created by Aditya on 10/4/17 5:01 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 3:58 PM
+ * Last modified 10/4/17 5:01 PM
  */
 
-package com.githubapi.repositoryLanguage.model;
+package com.githubapi.repositoryList.model;
 
 
-import com.githubapi.repositoryLanguage.presenter.RepositoryListener;
+import com.githubapi.repositoryLanguage.model.GithubApiService;
+import com.githubapi.repositoryLanguage.model.Repository;
+import com.githubapi.repositoryList.presenter.RepositoryListener;
 import com.githubapi.utils.Config;
 import com.githubapi.utils.RestClient;
 
@@ -19,19 +21,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LanguageDataHandler {
+public class RepositoryDataHandler {
 
     RepositoryListener mRepositoryListener;
 
-    public LanguageDataHandler(RepositoryListener repositoryListener) {
+    public RepositoryDataHandler(RepositoryListener repositoryListener) {
         mRepositoryListener = repositoryListener;
     }
 
 
-    public void fetchRepos(String language) {
+    public void fetchRepos(String language, String pageNo) {
         GithubApiService githubApiService = RestClient.getInstance().getService(GithubApiService.class);
         Map<String, String> map = new HashMap<>();
         map.put(Config.QUERY, Config.QUERY_PARAM_LANGUAGE + language);
+        map.put(Config.PAGE, pageNo);
         githubApiService.getRepos(map).enqueue(new Callback<Repository>() {
             @Override
             public void onResponse(Call<Repository> call, Response<Repository> response) {
