@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 7:01 PM
+ * Created by Aditya on 10/4/17 7:15 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 7:01 PM
+ * Last modified 10/4/17 7:12 PM
  */
 
 package com.githubapi.repositoryDetail.view;
@@ -55,14 +55,14 @@ public class RepositoryDetailActivity extends AppCompatActivity implements Repos
 
     @Override
     public void showIssues(String issues) {
-        mTextViewIssues.setText("Issue list \n" + issues);
+        mTextViewIssues.setText("Issue list \n \t" + issues);
 
     }
 
     @Override
     public void showContributors(String contributors) {
 
-        mTextViewContributors.setText("ContributorList\n" + contributors);
+        mTextViewContributors.setText("Contributor List\n \t" + contributors);
 
     }
 

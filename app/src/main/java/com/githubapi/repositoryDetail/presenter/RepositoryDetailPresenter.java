@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 7:01 PM
+ * Created by Aditya on 10/4/17 7:15 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 7:01 PM
+ * Last modified 10/4/17 7:14 PM
  */
 
 package com.githubapi.repositoryDetail.presenter;
@@ -21,7 +21,11 @@ import java.util.List;
 
 public class RepositoryDetailPresenter implements RepositoryDetailListener<DescriptionType> {
 
-    public static final String NEW_LINE = "\n";
+    private static final String NEW_LINE = "\n";
+    private static final String TAB = "\t";
+    private static final String DOT = ".";
+    private static final String SPACE = " ";
+    public static final int THRESHOLD = 3;
     private RepositoryDetailView mRepositoryDetailView;
     private RepositoryDetailDataHandler mRepositoryDetailDataHandler;
 
@@ -31,7 +35,6 @@ public class RepositoryDetailPresenter implements RepositoryDetailListener<Descr
     }
 
     public void getRepositoryIssues(String repoName) {
-        mRepositoryDetailView.showDialog();
         mRepositoryDetailDataHandler.getListOfIssues(repoName);
     }
 
@@ -45,23 +48,23 @@ public class RepositoryDetailPresenter implements RepositoryDetailListener<Descr
         mRepositoryDetailView.dismissDialog();
         if (requestType == RepositoryDetailDataHandler.API_CONTRIBUTORS) {
             StringBuilder stringBuilder = new StringBuilder();
-            int counter = 0;
+            int counter = 1;
             for (DescriptionType type : list) {
                 Contributor contributor = (Contributor) type;
-                stringBuilder.append(contributor.getLogin()).append(NEW_LINE);
-                if (counter == 2)
+                stringBuilder.append(TAB).append(counter).append(DOT).append(SPACE).append(contributor.getLogin()).append(NEW_LINE);
+                if (counter == THRESHOLD)
                     break;
                 counter++;
             }
             mRepositoryDetailView.showContributors(stringBuilder.toString());
         } else {
             StringBuilder stringBuilder = new StringBuilder();
-            int counter = 0;
+            int counter = 1;
             for (DescriptionType type : list) {
                 Issues issue = (Issues) type;
                 if (issue != null) {
-                    stringBuilder.append(issue.getTitle()).append(NEW_LINE);
-                    if (counter == 2)
+                    stringBuilder.append(TAB).append(counter).append(DOT).append(SPACE).append(issue.getTitle()).append(NEW_LINE);
+                    if (counter == THRESHOLD)
                         break;
                     counter++;
                 }
