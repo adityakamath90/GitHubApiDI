@@ -1,13 +1,11 @@
 /*
- * Created by Aditya on 9/4/17 11:29 PM
+ * Created by Aditya on 10/4/17 5:01 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 11:29 PM
+ * Last modified 10/4/17 5:01 PM
  */
 
 package com.githubapi.repositoryLanguage.view;
-
-import com.githubapi.repositoryLanguage.model.Repository;
 
 /**
  * Methods which are invoked by @link {@link com.githubapi.repositoryLanguage.presenter.LanguagePresenter}
@@ -15,10 +13,7 @@ import com.githubapi.repositoryLanguage.model.Repository;
  */
 
 public interface LanguageView {
+    void moveToLanguageDetailScreen();
 
-    void showDialog();
-    void dismissDialog();
-
-    void moveToLanguageDetailScreen(Repository repositoryList);
-    void displayMessage(String message);
+    void displayMessage();
 }

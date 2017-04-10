@@ -1,13 +1,12 @@
 /*
- * Created by Aditya on 10/4/17 3:59 PM
+ * Created by Aditya on 10/4/17 5:01 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 3:59 PM
+ * Last modified 10/4/17 5:01 PM
  */
 
 package com.githubapi.repositoryLanguage.view;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +16,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.githubapi.R;
-import com.githubapi.repositoryLanguage.model.Repository;
 import com.githubapi.repositoryLanguage.presenter.LanguagePresenter;
 import com.githubapi.repositoryList.view.RepositoryList;
 
@@ -29,8 +27,8 @@ import com.githubapi.repositoryList.view.RepositoryList;
  */
 public class LanguageActivity extends AppCompatActivity implements LanguageView{
 
-    private ProgressDialog mProgressDialog;
     private LanguagePresenter mLanguagePresenter;
+    private String mLanguage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +39,8 @@ public class LanguageActivity extends AppCompatActivity implements LanguageView{
         buttonSearchGitHub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String language = editTextLanguage.getText().toString().trim();
-                if (mLanguagePresenter.isLanguageStringValid(language)) {
-                    mLanguagePresenter.fetchRepos(language);
-                } else {
-                    displayMessage(getString(R.string.enterLanguage));
-                }
+                mLanguage = editTextLanguage.getText().toString().trim();
+                mLanguagePresenter.isLanguageStringValid(mLanguage);
             }
         });
         mLanguagePresenter = new LanguagePresenter(this);
@@ -55,29 +49,14 @@ public class LanguageActivity extends AppCompatActivity implements LanguageView{
 
 
     @Override
-    public void showDialog() {
-        mProgressDialog = ProgressDialog.show(this,getString(R.string.app_name), getString(R.string.pleaseWait));
-        mProgressDialog.show();
-    }
-
-    @Override
-    public void dismissDialog() {
-        mProgressDialog.dismiss();
-    }
-
-    @Override
-    public void moveToLanguageDetailScreen(Repository repository) {
-        if (!mLanguagePresenter.isRepoListEmpty(repository.getItems())) {
+    public void moveToLanguageDetailScreen() {
             Intent languageDetailIntent = new Intent(this, RepositoryList.class);
-            languageDetailIntent.putParcelableArrayListExtra(RepositoryList.REPO_LIST, repository.getItems());
+        languageDetailIntent.putExtra(RepositoryList.REPO_LANGUAGE, mLanguage);
             startActivity(languageDetailIntent);
-        } else {
-            displayMessage(getString(R.string.no_repo_found));
         }
-    }
 
     @Override
-    public void displayMessage(String message) {
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+    public void displayMessage() {
+        Toast.makeText(this, getString(R.string.enterLanguage), Toast.LENGTH_LONG).show();
     }
 }
