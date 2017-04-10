@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 9/4/17 11:29 PM
+ * Created by Aditya on 10/4/17 3:59 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 11:29 PM
+ * Last modified 10/4/17 3:44 PM
  */
 
 package com.githubapi.repositoryList.view;
@@ -56,6 +56,7 @@ public class RepositoryListAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(mInflater.getContext()).inflate(R.layout.repositiory_list_item, null);
             viewHolder.repoItem = (TextView) view.findViewById(R.id.listItem);
+            view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
