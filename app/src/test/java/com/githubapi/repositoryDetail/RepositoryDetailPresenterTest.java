@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 10:50 PM
+ * Created by Aditya on 11/4/17 1:27 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 10:50 PM
+ * Last modified 11/4/17 1:26 AM
  */
 
 package com.githubapi.repositoryDetail;
@@ -32,6 +32,8 @@ public class RepositoryDetailPresenterTest {
 
     private static final String JAVA_REPO = "java";
     private static final String NETWORK_ERROR = "network error";
+    public static final String LOGIN = "Jack";
+    public static final String COMPILE_TIME_EROOR = "Compile time error";
     private RepositoryDetailPresenter mRepositoryDetailPresenter;
     @Mock
     private RepositoryDetailView mRepositoryDetailView;
@@ -47,7 +49,7 @@ public class RepositoryDetailPresenterTest {
         mRepositoryDetailPresenter.getRepositoryContributors(JAVA_REPO);
         List<DescriptionType> contributorList = new ArrayList<>();
         Contributor contributor = new Contributor();
-        contributor.setLogin("XYZ");
+        contributor.setLogin(LOGIN);
         contributorList.add(contributor);
         mRepositoryDetailPresenter.onSuccess(RepositoryDetailDataHandler.API_CONTRIBUTORS, contributorList);
         Mockito.verify(mRepositoryDetailView).dismissDialog();
@@ -68,7 +70,7 @@ public class RepositoryDetailPresenterTest {
         mRepositoryDetailPresenter.getRepositoryIssues(JAVA_REPO);
         List<DescriptionType> issueList = new ArrayList<>();
         Issues issues = new Issues();
-        issues.setTitle("XYZ");
+        issues.setTitle(COMPILE_TIME_EROOR);
         issueList.add(issues);
         mRepositoryDetailPresenter.onSuccess(RepositoryDetailDataHandler.API_ISSUES, issueList);
         Mockito.verify(mRepositoryDetailView).dismissDialog();

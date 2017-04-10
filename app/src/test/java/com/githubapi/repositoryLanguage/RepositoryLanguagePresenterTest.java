@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 10:51 PM
+ * Created by Aditya on 11/4/17 1:27 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 10:51 PM
+ * Last modified 11/4/17 1:26 AM
  */
 
 package com.githubapi.repositoryLanguage;
@@ -18,7 +18,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 
-public class LanguagePresenterTest {
+public class RepositoryLanguagePresenterTest {
 
     private static final String JAVA = "java";
     private LanguagePresenter mLanguagePresenter;
