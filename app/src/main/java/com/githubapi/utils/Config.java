@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 9/4/17 10:36 PM
+ * Created by Aditya on 10/4/17 3:57 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 9:40 PM
+ * Last modified 10/4/17 3:23 PM
  */
 
 package com.githubapi.utils;
@@ -16,5 +16,6 @@ public class Config {
 
     public static final String API_SEARCH_REPOSITORIES = "search/repositories";
 
-    public static final String QUERY_PARAM_LANGUAGE = "language";
+    public static final String QUERY = "q";
+    public static final String QUERY_PARAM_LANGUAGE = "language:";
 }
