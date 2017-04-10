@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 7:15 PM
+ * Created by Aditya on 11/4/17 1:27 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 7:12 PM
+ * Last modified 10/4/17 8:00 PM
  */
 
 package com.githubapi.repositoryDetail.view;
@@ -23,7 +23,6 @@ public class RepositoryDetailActivity extends AppCompatActivity implements Repos
     private ProgressDialog mProgressDialog;
     private TextView mTextViewContributors;
     private TextView mTextViewIssues;
-    private RepositoryDetailPresenter mRepositoryDetailPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +30,10 @@ public class RepositoryDetailActivity extends AppCompatActivity implements Repos
         setContentView(R.layout.activity_repository_detail);
         mTextViewContributors = (TextView) findViewById(R.id.textViewIssueList);
         mTextViewIssues = (TextView) findViewById(R.id.textViewContributorList);
-        mRepositoryDetailPresenter = new RepositoryDetailPresenter(this);
+        RepositoryDetailPresenter repositoryDetailPresenter = new RepositoryDetailPresenter(this);
         Item item = getIntent().getParcelableExtra(REPO_DETAIL);
-        mRepositoryDetailPresenter.getRepositoryContributors(item.getFullName());
-        mRepositoryDetailPresenter.getRepositoryIssues(item.getFullName());
+        repositoryDetailPresenter.getRepositoryContributors(item.getFullName());
+        repositoryDetailPresenter.getRepositoryIssues(item.getFullName());
     }
 
     @Override

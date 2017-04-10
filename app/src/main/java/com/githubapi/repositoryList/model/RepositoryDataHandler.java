@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 5:01 PM
+ * Created by Aditya on 11/4/17 1:27 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 5:01 PM
+ * Last modified 11/4/17 12:54 AM
  */
 
 package com.githubapi.repositoryList.model;
@@ -23,7 +23,7 @@ import retrofit2.Response;
 
 public class RepositoryDataHandler {
 
-    RepositoryListener mRepositoryListener;
+    private RepositoryListener mRepositoryListener;
 
     public RepositoryDataHandler(RepositoryListener repositoryListener) {
         mRepositoryListener = repositoryListener;
