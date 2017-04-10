@@ -1,13 +1,14 @@
 /*
- * Created by Aditya on 10/4/17 5:01 PM
+ * Created by Aditya on 10/4/17 7:01 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 5:01 PM
+ * Last modified 10/4/17 6:15 PM
  */
 
 package com.githubapi.repositoryList.view;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.githubapi.R;
+import com.githubapi.repositoryDetail.view.RepositoryDetailActivity;
 import com.githubapi.repositoryLanguage.model.Item;
 import com.githubapi.repositoryList.presenter.RepositoryListPresenter;
 
@@ -48,6 +50,9 @@ public class RepositoryList extends AppCompatActivity implements RepositoryListA
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Item item = (Item) adapterView.getItemAtPosition(i);
+                Intent intent = new Intent(RepositoryList.this, RepositoryDetailActivity.class);
+                intent.putExtra(RepositoryDetailActivity.REPO_DETAIL, item);
+                startActivity(intent);
             }
         });
 
