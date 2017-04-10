@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 5:01 PM
+ * Created by Aditya on 10/4/17 7:01 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 5:01 PM
+ * Last modified 10/4/17 6:15 PM
  */
 
 package com.githubapi.repositoryLanguage.view;
@@ -25,7 +25,7 @@ import com.githubapi.repositoryList.view.RepositoryList;
  * Clicking on Button text validates the github content i.e programming language
  * to be displayed as a list.
  */
-public class LanguageActivity extends AppCompatActivity implements LanguageView{
+public class LanguageActivity extends AppCompatActivity implements LanguageView {
 
     private LanguagePresenter mLanguagePresenter;
     private String mLanguage;
@@ -50,10 +50,10 @@ public class LanguageActivity extends AppCompatActivity implements LanguageView{
 
     @Override
     public void moveToLanguageDetailScreen() {
-            Intent languageDetailIntent = new Intent(this, RepositoryList.class);
+        Intent languageDetailIntent = new Intent(this, RepositoryList.class);
         languageDetailIntent.putExtra(RepositoryList.REPO_LANGUAGE, mLanguage);
-            startActivity(languageDetailIntent);
-        }
+        startActivity(languageDetailIntent);
+    }
 
     @Override
     public void displayMessage() {
