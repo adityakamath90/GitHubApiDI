@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 3:57 PM
+ * Created by Aditya on 10/4/17 5:00 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 3:23 PM
+ * Last modified 10/4/17 4:08 PM
  */
 
 package com.githubapi.utils;
@@ -18,4 +18,5 @@ public class Config {
 
     public static final String QUERY = "q";
     public static final String QUERY_PARAM_LANGUAGE = "language:";
+    public static final String PAGE = "page";
 }
