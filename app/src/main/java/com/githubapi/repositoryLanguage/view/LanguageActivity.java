@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 9/4/17 11:29 PM
+ * Created by Aditya on 10/4/17 3:59 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 11:29 PM
+ * Last modified 10/4/17 3:59 PM
  */
 
 package com.githubapi.repositoryLanguage.view;
@@ -68,10 +68,9 @@ public class LanguageActivity extends AppCompatActivity implements LanguageView{
     @Override
     public void moveToLanguageDetailScreen(Repository repository) {
         if (!mLanguagePresenter.isRepoListEmpty(repository.getItems())) {
-            Intent languageDetailIntent = new Intent(this, LanguageActivity.class);
+            Intent languageDetailIntent = new Intent(this, RepositoryList.class);
             languageDetailIntent.putParcelableArrayListExtra(RepositoryList.REPO_LIST, repository.getItems());
             startActivity(languageDetailIntent);
-            finish();
         } else {
             displayMessage(getString(R.string.no_repo_found));
         }
