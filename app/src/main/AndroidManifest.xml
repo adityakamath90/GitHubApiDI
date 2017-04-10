@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Created by Aditya on 9/4/17 10:30 PM
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by Aditya on 10/4/17 7:01 PM
   ~ Copyright (c) 2017 All rights reserved.
   ~
-  ~ Last modified 9/4/17 10:30 PM
+  ~ Last modified 10/4/17 7:01 PM
   -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.githubapi">
 
@@ -29,6 +27,9 @@
         </activity>
         <activity
             android:name=".repositoryList.view.RepositoryList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".repositoryDetail.view.RepositoryDetailActivity"
             android:screenOrientation="portrait" />
     </application>
 
