@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 9/4/17 11:47 PM
+ * Created by Aditya on 10/4/17 3:56 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 11:47 PM
+ * Last modified 10/4/17 2:59 PM
  */
 
 package com.githubapi.repositoryLanguage.presenter;
@@ -60,6 +60,7 @@ public class LanguagePresenter implements RepositoryListener {
 
     @Override
     public void onFailure(String errorMessage) {
+        mLanguageView.dismissDialog();
         mLanguageView.displayMessage(errorMessage);
     }
 }
