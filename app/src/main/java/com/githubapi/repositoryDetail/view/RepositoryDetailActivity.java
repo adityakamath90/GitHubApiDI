@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 11/4/17 1:27 AM
+ * Created by Aditya on 11/4/17 2:27 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 8:00 PM
+ * Last modified 11/4/17 2:27 AM
  */
 
 package com.githubapi.repositoryDetail.view;
@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.githubapi.R;
 import com.githubapi.repositoryDetail.presenter.RepositoryDetailPresenter;
 import com.githubapi.repositoryLanguage.model.Item;
+
+import java.text.MessageFormat;
 
 public class RepositoryDetailActivity extends AppCompatActivity implements RepositoryDetailView {
 
@@ -54,15 +56,12 @@ public class RepositoryDetailActivity extends AppCompatActivity implements Repos
 
     @Override
     public void showIssues(String issues) {
-        mTextViewIssues.setText("Issue list \n \t" + issues);
-
+        mTextViewIssues.setText(MessageFormat.format(getString(R.string.issueList), issues));
     }
 
     @Override
     public void showContributors(String contributors) {
-
-        mTextViewContributors.setText("Contributor List\n \t" + contributors);
-
+        mTextViewContributors.setText(MessageFormat.format(getString(R.string.contributorList), contributors));
     }
 
 

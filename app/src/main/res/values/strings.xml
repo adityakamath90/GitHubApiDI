@@ -1,8 +1,8 @@
 <!--
-  ~ Created by Aditya on 9/4/17 11:29 PM
+  ~ Created by Aditya on 11/4/17 2:27 AM
   ~ Copyright (c) 2017 All rights reserved.
   ~
-  ~ Last modified 9/4/17 11:28 PM
+  ~ Last modified 11/4/17 2:26 AM
   -->
 
 <resources>
@@ -11,4 +11,6 @@
     <string name="searchGitHub">Search GitHub</string>
     <string name="pleaseWait">Please wait...</string>
     <string name="no_repo_found">No repository found for the entered language.</string>
+    <string name="issueList">Issue list\n {0}</string>
+    <string name="contributorList">Contributor list\n {0}</string>
 </resources>
