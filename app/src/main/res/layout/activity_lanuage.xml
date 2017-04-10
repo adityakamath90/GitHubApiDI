@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Created by Aditya on 9/4/17 10:35 PM
+  ~ Created by Aditya on 10/4/17 2:57 PM
   ~ Copyright (c) 2017 All rights reserved.
   ~
-  ~ Last modified 9/4/17 8:33 PM
+  ~ Last modified 10/4/17 2:56 PM
   -->
 
 <RelativeLayout
@@ -26,7 +26,8 @@
 
 
     <Button
-
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/editTextLanguage"
         android:text="@string/searchGitHub"
         android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
