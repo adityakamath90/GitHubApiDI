@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 11/4/17 2:18 AM
+ * Created by Aditya on 11/4/17 2:19 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 11/4/17 2:16 AM
+ * Last modified 11/4/17 2:19 AM
  */
 
 package com.githubapi.repositoryLanguage;
@@ -24,7 +24,7 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
-public class RepositoryRepositoryLanguageActivityTest {
+public class RepositoryLanguageActivityTest {
 
     private static final String JAVA = "java";
     @Rule
