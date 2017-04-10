@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 9/4/17 11:51 PM
+ * Created by Aditya on 10/4/17 4:03 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 11:51 PM
+ * Last modified 10/4/17 4:03 PM
  */
 
 package com.githubapi;
@@ -23,6 +23,7 @@ import java.util.List;
 
 public class LanguagePresenterTest {
 
+    public static final String JAVA = "java";
     private LanguagePresenter mLanguagePresenter;
     @Mock
     private LanguageView langauegeView;
@@ -36,7 +37,7 @@ public class LanguagePresenterTest {
 
     @Test
     public void languageIsEmpty() {
-        Assert.assertTrue(mLanguagePresenter.isLanguageStringValid("java"));
+        Assert.assertTrue(mLanguagePresenter.isLanguageStringValid(JAVA));
     }
 
     @Test
