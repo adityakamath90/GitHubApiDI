@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 7:15 PM
+ * Created by Aditya on 11/4/17 2:18 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 7:14 PM
+ * Last modified 11/4/17 2:14 AM
  */
 
 package com.githubapi.repositoryDetail.presenter;
@@ -25,7 +25,8 @@ public class RepositoryDetailPresenter implements RepositoryDetailListener<Descr
     private static final String TAB = "\t";
     private static final String DOT = ".";
     private static final String SPACE = " ";
-    public static final int THRESHOLD = 3;
+    private static final int THRESHOLD = 3;
+
     private RepositoryDetailView mRepositoryDetailView;
     private RepositoryDetailDataHandler mRepositoryDetailDataHandler;
 
