@@ -1,17 +1,19 @@
 /*
- * Created by Aditya on 9/4/17 11:42 PM
+ * Created by Aditya on 10/4/17 3:57 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 9/4/17 11:42 PM
+ * Last modified 10/4/17 3:57 PM
  */
 
 package com.githubapi.repositoryLanguage.model;
 
 import com.githubapi.utils.Config;
 
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 /**
  * Created by Aditya on 09/04/17.
@@ -20,5 +22,5 @@ import retrofit2.http.Query;
 public interface GithubApiService {
 
     @GET(Config.API_SEARCH_REPOSITORIES)
-    Call<Repository> getRepos(@Query(Config.QUERY_PARAM_LANGUAGE) String language);
+    Call<Repository> getRepos(@QueryMap Map<String, String> language);
 }
