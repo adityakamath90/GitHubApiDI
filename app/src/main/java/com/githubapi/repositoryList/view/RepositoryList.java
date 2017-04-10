@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 10/4/17 7:01 PM
+ * Created by Aditya on 10/4/17 7:04 PM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 10/4/17 6:15 PM
+ * Last modified 10/4/17 7:03 PM
  */
 
 package com.githubapi.repositoryList.view;
@@ -30,7 +30,6 @@ public class RepositoryList extends AppCompatActivity implements RepositoryListA
 
 
     public static final String REPO_LANGUAGE = "language";
-    private ListView mListView;
     private int mPageCount = 1;
     private ProgressDialog mProgressDialog;
     private RepositoryListAdapter mRepositoryListAdapter;
@@ -44,9 +43,9 @@ public class RepositoryList extends AppCompatActivity implements RepositoryListA
         setContentView(R.layout.activity_repository_list);
         mListPresenter = new RepositoryListPresenter(this);
         mLanguage = getIntent().getStringExtra(REPO_LANGUAGE);
-        mListView = (ListView) findViewById(R.id.repoListView);
-        mListView.setAdapter(mRepositoryListAdapter = new RepositoryListAdapter(new ArrayList<Item>(), LayoutInflater.from(this)));
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ListView listView = (ListView) findViewById(R.id.repoListView);
+        listView.setAdapter(mRepositoryListAdapter = new RepositoryListAdapter(new ArrayList<Item>(), LayoutInflater.from(this)));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Item item = (Item) adapterView.getItemAtPosition(i);
@@ -56,7 +55,7 @@ public class RepositoryList extends AppCompatActivity implements RepositoryListA
             }
         });
 
-        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
 
             @Override
             public void onScrollStateChanged(AbsListView arg0, int scrollState) {
