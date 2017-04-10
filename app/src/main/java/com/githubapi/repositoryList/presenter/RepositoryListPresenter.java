@@ -1,8 +1,8 @@
 /*
- * Created by Aditya on 11/4/17 1:27 AM
+ * Created by Aditya on 11/4/17 2:34 AM
  * Copyright (c) 2017 All rights reserved.
  *
- * Last modified 11/4/17 1:27 AM
+ * Last modified 11/4/17 2:34 AM
  */
 
 package com.githubapi.repositoryList.presenter;
@@ -35,7 +35,11 @@ public class RepositoryListPresenter implements RepositoryListener {
     @Override
     public void onSuccess(Repository repositoryList) {
         mRepositoryListActivityView.dismissDialog();
-        mRepositoryListActivityView.notifyDataSetChanged(repositoryList.getItems());
+        if (repositoryList != null) {
+            mRepositoryListActivityView.notifyDataSetChanged(repositoryList.getItems());
+        } else {
+            mRepositoryListActivityView.showMessage("No repository found");
+        }
     }
 
     @Override
