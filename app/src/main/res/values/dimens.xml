@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Aditya on 11/4/17 9:21 AM
+  ~ Copyright (c) 2017 All rights reserved.
+  ~
+  ~ Last modified 11/4/17 2:28 AM
+  -->
+
+<resources>
+
+    <dimen name="langaudeEditTextMargin">20dp</dimen>
+    <dimen name="contributorTopMargin">10dp</dimen>
+    <dimen name="listItemMargin">10dp</dimen>
+    <dimen name="detailPaddingLeft">20dp</dimen>
+</resources>

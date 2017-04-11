@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Aditya on 11/4/17 9:21 AM
+  ~ Copyright (c) 2017 All rights reserved.
+  ~
+  ~ Last modified 9/4/17 6:43 PM
+  -->
+
+<resources>
+
+    <integer name="languageEditTextMaxLine">1</integer>
+
+</resources>
