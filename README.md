@@ -23,5 +23,5 @@ A background about design and architecture in the application
 3.	Unit Testing
 		I have used Mockito for testing the Presenter and the model classes.
 
-4	Instrumentation Testing
+4 	Instrumentation Testing
 		I have used AndroidJunit4 and expresso for UI testing (LanguageActivity) only
