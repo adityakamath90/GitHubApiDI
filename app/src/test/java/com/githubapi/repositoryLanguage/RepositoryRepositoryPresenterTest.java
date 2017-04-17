@@ -7,7 +7,7 @@
 
 package com.githubapi.repositoryLanguage;
 
-import com.githubapi.repositoryLanguage.presenter.LanguagePresenter;
+import com.githubapi.repositoryLanguage.presenter.RepositoryPresenter;
 import com.githubapi.repositoryLanguage.view.LanguageView;
 
 import org.junit.After;
@@ -18,29 +18,29 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 
-public class RepositoryLanguagePresenterTest {
+public class RepositoryRepositoryPresenterTest {
 
     private static final String JAVA = "java";
-    private LanguagePresenter mLanguagePresenter;
+    private RepositoryPresenter mRepositoryPresenter;
     @Mock
     private LanguageView mLanguageView;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        mLanguagePresenter = new LanguagePresenter(mLanguageView);
+        mRepositoryPresenter = new RepositoryPresenter(mLanguageView);
     }
 
 
     @Test
     public void testLanguageStringValid() {
-        mLanguagePresenter.isLanguageStringValid(JAVA);
+        mRepositoryPresenter.isLanguageStringValid(JAVA);
         Mockito.verify(mLanguageView).moveToLanguageDetailScreen();
     }
 
     @Test
     public void testLanguageStringInValid() {
-        mLanguagePresenter.isLanguageStringValid(null);
+        mRepositoryPresenter.isLanguageStringValid(null);
         Mockito.verify(mLanguageView).displayMessage();
     }
 
@@ -48,7 +48,7 @@ public class RepositoryLanguagePresenterTest {
     @After
     public void tearDown() {
         mLanguageView = null;
-        mLanguagePresenter = null;
+        mRepositoryPresenter = null;
     }
 
 
