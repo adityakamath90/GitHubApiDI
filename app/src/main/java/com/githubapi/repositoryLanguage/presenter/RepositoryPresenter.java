@@ -9,11 +9,14 @@ package com.githubapi.repositoryLanguage.presenter;
 
 import com.githubapi.repositoryLanguage.view.LanguageView;
 
-public class LanguagePresenter {
+import javax.inject.Inject;
+
+public class RepositoryPresenter {
 
     private LanguageView mLanguageView;
 
-    public LanguagePresenter(LanguageView languageView) {
+    @Inject
+    public RepositoryPresenter(LanguageView languageView) {
         mLanguageView = languageView;
     }
 

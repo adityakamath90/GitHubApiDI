@@ -16,8 +16,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.githubapi.R;
-import com.githubapi.repositoryLanguage.presenter.LanguagePresenter;
+//import com.githubapi.repositoryLanguage.di.DaggerRepositoryLanguageComponent;
+//import com.githubapi.repositoryLanguage.di.RepositoryActivityModule;
+import com.githubapi.repositoryLanguage.di.DaggerRepositoryLanguageComponent;
+import com.githubapi.repositoryLanguage.di.RepositoryActivityModule;
+import com.githubapi.repositoryLanguage.di.RepositoryLanguageComponent;
+import com.githubapi.repositoryLanguage.presenter.RepositoryPresenter;
 import com.githubapi.repositoryList.view.RepositoryList;
+
+import javax.inject.Inject;
 
 /**
  * RepositoryLanguageActivity contains an edit text and a button
@@ -27,24 +34,27 @@ import com.githubapi.repositoryList.view.RepositoryList;
  */
 public class RepositoryLanguageActivity extends AppCompatActivity implements LanguageView {
 
-    private LanguagePresenter mLanguagePresenter;
+    @Inject
+    RepositoryPresenter mRepositoryPresenter;
     private String mLanguage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lanuage);
+        RepositoryLanguageComponent languageComponent =DaggerRepositoryLanguageComponent
+            .builder().repositoryActivityModule(new RepositoryActivityModule(this)).build();
+        languageComponent.inject(this);
+
         final EditText editTextLanguage = (EditText) findViewById(R.id.editTextLanguage);
         Button buttonSearchGitHub = (Button) findViewById(R.id.buttonSearch);
         buttonSearchGitHub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mLanguage = editTextLanguage.getText().toString().trim();
-                mLanguagePresenter.isLanguageStringValid(mLanguage);
+                mRepositoryPresenter.isLanguageStringValid(mLanguage);
             }
         });
-        mLanguagePresenter = new LanguagePresenter(this);
-
     }
 
 

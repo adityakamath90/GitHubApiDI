@@ -7,8 +7,10 @@
 
 package com.githubapi.repositoryLanguage.view;
 
+import com.githubapi.repositoryLanguage.presenter.RepositoryPresenter;
+
 /**
- * Methods which are invoked by @link {@link com.githubapi.repositoryLanguage.presenter.LanguagePresenter}
+ * Methods which are invoked by @link {@link RepositoryPresenter}
  * and implemented by @link {@link RepositoryLanguageActivity}
  */
 
