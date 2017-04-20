@@ -16,8 +16,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.githubapi.R;
-//import com.githubapi.repositoryLanguage.di.DaggerRepositoryLanguageComponent;
-//import com.githubapi.repositoryLanguage.di.RepositoryActivityModule;
 import com.githubapi.repositoryLanguage.di.DaggerRepositoryLanguageComponent;
 import com.githubapi.repositoryLanguage.di.RepositoryActivityModule;
 import com.githubapi.repositoryLanguage.di.RepositoryLanguageComponent;
@@ -45,6 +43,8 @@ public class RepositoryLanguageActivity extends AppCompatActivity implements Lan
         RepositoryLanguageComponent languageComponent =DaggerRepositoryLanguageComponent
             .builder().repositoryActivityModule(new RepositoryActivityModule(this)).build();
         languageComponent.inject(this);
+
+
 
         final EditText editTextLanguage = (EditText) findViewById(R.id.editTextLanguage);
         Button buttonSearchGitHub = (Button) findViewById(R.id.buttonSearch);

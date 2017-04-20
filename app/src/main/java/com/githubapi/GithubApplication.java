@@ -13,11 +13,17 @@ import com.githubapi.di.application.DaggerApplicationComponent;
 
 public class GithubApplication extends Application {
 
+    private ApplicationComponent mApplicationComponent;
+
     @Override
     public void onCreate() {
         super.onCreate();
-        ApplicationComponent applicationComponent = DaggerApplicationComponent
+         mApplicationComponent = DaggerApplicationComponent
                 .builder().applicationModule(new ApplicationModule(this)).build();
-        applicationComponent.inject(this);
+        mApplicationComponent.inject(this);
+    }
+
+    public ApplicationComponent getApplicationComponent() {
+        return mApplicationComponent;
     }
 }

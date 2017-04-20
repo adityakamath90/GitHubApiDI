@@ -11,6 +11,8 @@ import com.githubapi.repositoryLanguage.model.Repository;
 import com.githubapi.repositoryList.model.RepositoryDataHandler;
 import com.githubapi.repositoryList.view.RepositoryListActivityView;
 
+import javax.inject.Inject;
+
 /**
  * Created by Aditya on 09/04/17.
  */
@@ -20,9 +22,11 @@ public class RepositoryListPresenter implements RepositoryListener {
     private RepositoryListActivityView mRepositoryListActivityView;
     private RepositoryDataHandler mRepositoryDataHandler;
 
-    public RepositoryListPresenter(RepositoryListActivityView listActivityView) {
+    @Inject
+    public RepositoryListPresenter(RepositoryListActivityView listActivityView,
+                                   RepositoryDataHandler repositoryDataHandler) {
         mRepositoryListActivityView = listActivityView;
-        mRepositoryDataHandler = new RepositoryDataHandler(this);
+        mRepositoryDataHandler = repositoryDataHandler;
     }
 
     public void fetchRepos(String language, String page) {

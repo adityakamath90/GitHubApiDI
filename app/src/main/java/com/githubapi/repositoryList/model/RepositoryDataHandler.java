@@ -17,6 +17,8 @@ import com.githubapi.utils.RestClient;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,14 +26,17 @@ import retrofit2.Response;
 public class RepositoryDataHandler {
 
     private RepositoryListener mRepositoryListener;
+    private RestClient mRestClient;
 
-    public RepositoryDataHandler(RepositoryListener repositoryListener) {
+    @Inject
+    public RepositoryDataHandler(RepositoryListener repositoryListener, RestClient restClient) {
         mRepositoryListener = repositoryListener;
+        mRestClient = restClient;
     }
 
 
     public void fetchRepos(String language, String pageNo) {
-        GithubApiService githubApiService = RestClient.getInstance().getService(GithubApiService.class);
+        GithubApiService githubApiService = mRestClient.getService(GithubApiService.class);
         Map<String, String> map = new HashMap<>();
         map.put(Config.QUERY, Config.QUERY_PARAM_LANGUAGE + language);
         map.put(Config.PAGE, pageNo);

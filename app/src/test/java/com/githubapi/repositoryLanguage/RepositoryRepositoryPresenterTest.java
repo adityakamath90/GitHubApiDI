@@ -25,6 +25,7 @@ public class RepositoryRepositoryPresenterTest {
     @Mock
     private LanguageView mLanguageView;
 
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);

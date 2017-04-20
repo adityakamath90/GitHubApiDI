@@ -8,6 +8,7 @@
 package com.githubapi.repositoryList;
 
 import com.githubapi.repositoryLanguage.model.Repository;
+import com.githubapi.repositoryList.model.RepositoryDataHandler;
 import com.githubapi.repositoryList.presenter.RepositoryListPresenter;
 import com.githubapi.repositoryList.view.RepositoryListActivityView;
 
@@ -34,11 +35,13 @@ public class RepositoryListPresenterTest {
     private RepositoryListPresenter mRepositoryListPresenter;
     @Mock
     private RepositoryListActivityView mRepositoryListActivityView;
+    @Mock
+    private RepositoryDataHandler mRepositoryDataHandler;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        mRepositoryListPresenter = new RepositoryListPresenter(mRepositoryListActivityView);
+        mRepositoryListPresenter = new RepositoryListPresenter(mRepositoryListActivityView,mRepositoryDataHandler);
     }
 
     @Test

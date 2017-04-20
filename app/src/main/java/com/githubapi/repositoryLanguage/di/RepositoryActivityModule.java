@@ -2,11 +2,8 @@ package com.githubapi.repositoryLanguage.di;
 
 import android.content.Context;
 
-import com.githubapi.di.application.ActivityScope;
 import com.githubapi.repositoryLanguage.presenter.RepositoryPresenter;
 import com.githubapi.repositoryLanguage.view.RepositoryLanguageActivity;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;

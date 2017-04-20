@@ -18,13 +18,22 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.githubapi.GithubApplication;
 import com.githubapi.R;
+import com.githubapi.di.application.ApplicationComponent;
 import com.githubapi.repositoryDetail.view.RepositoryDetailActivity;
 import com.githubapi.repositoryLanguage.model.Item;
+import com.githubapi.repositoryList.di.DaggerRepositoryListComponent;
+import com.githubapi.repositoryList.di.RepositoryListComponent;
+import com.githubapi.repositoryList.di.RepositoryListModule;
+import com.githubapi.repositoryList.model.RepositoryDataHandler;
 import com.githubapi.repositoryList.presenter.RepositoryListPresenter;
+import com.githubapi.utils.RestClient;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class RepositoryList extends AppCompatActivity implements RepositoryListActivityView {
 
@@ -33,15 +42,28 @@ public class RepositoryList extends AppCompatActivity implements RepositoryListA
     private int mPageCount = 1;
     private ProgressDialog mProgressDialog;
     private RepositoryListAdapter mRepositoryListAdapter;
-    private RepositoryListPresenter mListPresenter;
+    @Inject
+    RepositoryListPresenter mListPresenter;
+    @Inject
+    RepositoryDataHandler mDataHandler;
+    @Inject
+    RestClient mRestClient;
     private String mLanguage;
+    @Inject
+    ApplicationComponent mApplicationComponent;
     boolean userScrolled = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repository_list);
-        mListPresenter = new RepositoryListPresenter(this);
+        RepositoryListComponent repositoryComponent = DaggerRepositoryListComponent.builder()
+                .applicationComponent(((GithubApplication) getApplication())
+                        .getApplicationComponent()).repositoryListModule(new RepositoryListModule
+                        (this, new RepositoryDataHandler(mListPresenter, ((GithubApplication)
+                                getApplication()).getApplicationComponent().getRestClient())))
+                .build();
+        repositoryComponent.inject(this);
         mLanguage = getIntent().getStringExtra(REPO_LANGUAGE);
         ListView listView = (ListView) findViewById(R.id.repoListView);
         listView.setAdapter(mRepositoryListAdapter = new RepositoryListAdapter(new ArrayList<Item>(), LayoutInflater.from(this)));

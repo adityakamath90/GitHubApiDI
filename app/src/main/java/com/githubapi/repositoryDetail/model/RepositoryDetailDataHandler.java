@@ -15,6 +15,8 @@ import com.githubapi.utils.RestClient;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,13 +30,14 @@ public class RepositoryDetailDataHandler<DescriptionType> {
     private RepositoryDetailListener<DescriptionType> mRepositoryDetailListener;
     public static final int API_ISSUES = 1;
     public static final int API_CONTRIBUTORS = 2;
+    @Inject RestClient mRestClient;
 
     public RepositoryDetailDataHandler(RepositoryDetailListener repositoryDetailListener) {
         mRepositoryDetailListener = repositoryDetailListener;
     }
 
     public void getListOfIssues(String repoName) {
-        RepositoryDetailService repositoryDetailService = RestClient.getInstance().getService(RepositoryDetailService.class);
+        RepositoryDetailService repositoryDetailService = mRestClient.getService(RepositoryDetailService.class);
         repositoryDetailService.getIssues(String.format(Config.ISSUES, repoName)).enqueue(new Callback<List<Issues>>() {
             @Override
             public void onResponse(Call<List<Issues>> call, Response<List<Issues>> response) {
@@ -49,7 +52,7 @@ public class RepositoryDetailDataHandler<DescriptionType> {
     }
 
     public void getListOfContributors(final String repoName) {
-        RepositoryDetailService repositoryDetailService = RestClient.getInstance().getService(RepositoryDetailService.class);
+        RepositoryDetailService repositoryDetailService = mRestClient.getService(RepositoryDetailService.class);
         repositoryDetailService.getContributors(String.format(Config.CONTRIBUTORS, repoName)).enqueue(new Callback<List<Contributor>>() {
             @Override
             public void onResponse(Call<List<Contributor>> call, Response<List<Contributor>> response) {

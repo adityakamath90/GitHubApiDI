@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.githubapi.GithubApplication;
+import com.githubapi.repositoryDetail.view.RepositoryDetailActivity;
+import com.githubapi.repositoryList.view.RepositoryList;
 import com.githubapi.utils.RestClient;
 
 import javax.inject.Singleton;
